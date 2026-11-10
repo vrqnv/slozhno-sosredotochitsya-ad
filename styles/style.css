@@ -126,18 +126,15 @@
 	justify-self: end;
 	max-inline-size: 100%;
 	margin-block-start: 20px;
+	padding: 0 10px;
+	color: var(--page-background-color);
+	font-weight: 700;
 }
 
 .title-decor {
 	color: var(--title-color);
 	font-weight: 700;
 	background-color: var(--title-decor-background);
-}
-
-.header__description {
-	padding: 0 10px;
-	color: var(--page-background-color);
-	font-weight: 700;
 }
 
 .main {
@@ -228,6 +225,7 @@
 }
 
 .gallery-image {
+	display: block;
 	inline-size: 100%;
 	block-size: 100%;
 	object-fit: cover;
@@ -251,7 +249,7 @@
 	text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-@media (width > 768px) {
+@media (width >= 768px) {
 	:root {
 		--page-padding: 20px;
 		--section-gap: 80px;
