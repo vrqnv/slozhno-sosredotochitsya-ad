@@ -1,16 +1,43 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 :root.theme-light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+	color-scheme: light;
+
+	--page-background-color: #fff1f7;
+	--page-background-image: url('../images/cover-image-light.png');
+
+	--text-color: #353430;
+	--title-color: #ffc2e6;
+	--accent-color: #ff8dcb;
+	--title-decor-background: #ff8dcb;
+
+	--button-border-color: #353430;
+	--button-hover-color: rgb(50 49 45 / 40%);
+
+	--theme-button-color: #353430;
 }
 
-.theme-light .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
+.theme-light .header__rec {
+	display: none;
+}
+
+@media (prefers-color-scheme: light) {
+	:root:not(.theme-dark, .theme-light) {
+		color-scheme: light;
+
+		--page-background-color: #fff1f7;
+		--page-background-image: url('../images/cover-image-light.png');
+
+		--text-color: #353430;
+		--title-color: #ffc2e6;
+		--accent-color: #ff8dcb;
+		--title-decor-background: #ff8dcb;
+
+		--button-border-color: #353430;
+		--button-hover-color: rgb(50 49 45 / 40%);
+
+		--theme-button-color: #353430;
+	}
+
+	:root:not(.theme-dark, .theme-light) .header__rec {
+		display: none;
+	}
 }

@@ -1,5 +1,364 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100vh;
+	color: var(--text-color);
+	font-family: var(--main-font);
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+	background-color: var(--page-background-color);
+	background-image: var(--page-background-image);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.decorated-zone {
+	position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+	position: absolute;
+	inline-size: 25px;
+	block-size: 25px;
+	content: '';
+	pointer-events: none;
+}
+
+.decorated-zone::before {
+	inset-block-start: var(--page-padding);
+	inset-inline-end: var(--page-padding);
+	border-block-start: 1px solid var(--accent-color);
+	border-inline-end: 1px solid var(--accent-color);
+}
+
+.decorated-zone::after {
+	inset-block-end: var(--page-padding);
+	inset-inline-start: var(--page-padding);
+	border-block-end: 1px solid var(--accent-color);
+	border-inline-start: 1px solid var(--accent-color);
+}
+
+.header {
+	display: grid;
+	grid-template-rows: 1fr auto 1fr;
+	min-block-size: 668px;
+	block-size: 100vh;
+	padding: var(--page-padding);
+}
+
+.header__theme-menu {
+	z-index: 1;
+	justify-self: end;
+	align-self: center;
+	margin-block-start: 0;
+}
+
+.header__theme-menu-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.header__theme-menu-button {
+	display: block;
+	min-inline-size: 70px;
+	padding: 1px 13px;
+	border: 1px solid transparent;
+	color: var(--theme-button-color);
+	font-size: 18px;
+	line-height: 1;
+	text-align: center;
+	text-transform: lowercase;
+	background: transparent;
+	cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+	border-color: var(--button-hover-color);
+}
+
+.header__theme-menu-button:focus-visible {
+	border-block-end: 1px solid var(--text-color);
+	outline: none;
+}
+
+.header__theme-menu-button_active {
+	border-color: var(--button-border-color);
+	pointer-events: none;
+}
+
+.header__rec {
+	position: absolute;
+	inset-block-start: 10px;
+	inset-inline-end: 38px;
+	display: block;
+	color: var(--accent-color);
+	line-height: 1;
+}
+
+.header__rec::after {
+	position: absolute;
+	inset-block-start: 5px;
+	inset-inline-end: -15px;
+	inline-size: 9px;
+	block-size: 9px;
+	border-radius: 50%;
+	background-color: var(--accent-color);
+	box-shadow: 0 0 4px 2px var(--accent-color);
+	content: '';
+}
+
+.header__title {
+	align-self: center;
+	margin-inline-start: -2px;
+	color: var(--title-color);
+	font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+	font-weight: 700;
+	line-height: 0.825;
+	letter-spacing: -0.06em;
+	text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__description {
+	align-self: center;
+	justify-self: end;
+	max-inline-size: 100%;
+	margin-block-start: 20px;
+}
+
+.title-decor {
+	color: var(--title-color);
+	font-weight: 700;
+	background-color: var(--title-decor-background);
+}
+
+.header__description {
+	padding: 0 10px;
+	color: var(--page-background-color);
+	font-weight: 700;
+}
+
+.main {
+	display: grid;
+	gap: var(--section-gap);
+	padding: 40px var(--page-padding);
+}
+
+.content-section {
+	display: grid;
+	gap: 20px;
+}
+
+.section-title {
+	color: var(--accent-color);
+	font-size: 18px;
+	font-weight: 700;
+	line-height: var(--line-height);
+}
+
+.section-content {
+	display: grid;
+	gap: 20px;
+	align-content: start;
+}
+
+.article {
+	display: grid;
+	gap: 10px;
+	align-content: start;
+}
+
+.article-title,
+.article-subtitle {
+	padding: 0 10px;
+	font-size: 18px;
+	line-height: var(--line-height);
+}
+
+.article-title {
+	color: var(--page-background-color);
+}
+
+.article-subtitle {
+	color: var(--page-background-color);
+	font-weight: 400;
+}
+
+.article-text {
+	display: grid;
+	gap: 10px;
+}
+
+.article-text a {
+	color: inherit;
+	text-decoration: none;
+	text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.article-text a:hover {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.article-text a:focus-visible {
+	outline: 1px solid currentColor;
+	outline-offset: 1px;
+}
+
+.gallery {
+	display: grid;
+	gap: 10px;
+}
+
+.gallery-title {
+	padding: 0 10px;
+	font-size: 18px;
+	line-height: var(--line-height);
+}
+
+.gallery-list {
+	display: grid;
+	gap: 10px;
+}
+
+.gallery-item {
+	min-inline-size: 0;
+}
+
+.gallery-image {
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.footer {
+	display: grid;
+	min-block-size: 668px;
+	block-size: 100vh;
+	padding: var(--page-padding);
+	place-items: center;
+}
+
+.footer__title {
+	color: var(--title-color);
+	font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+	font-weight: 700;
+	line-height: 0.825;
+	letter-spacing: -0.06em;
+	text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (width > 768px) {
+	:root {
+		--page-padding: 20px;
+		--section-gap: 80px;
+	}
+
+	.header {
+		min-block-size: 768px;
+		padding: var(--page-padding);
+	}
+
+	.header__theme-menu {
+		grid-row: 1;
+		justify-self: center;
+		align-self: start;
+	}
+
+	.header__theme-menu-list {
+		flex-direction: row;
+		gap: 10px;
+	}
+
+	.header__title {
+		grid-row: 2;
+		margin-inline-start: -20px;
+		font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+	}
+
+	.header__description {
+		grid-row: 3;
+		align-self: center;
+		max-inline-size: 50%;
+		margin-block-start: 0;
+	}
+
+	.main {
+		gap: var(--section-gap);
+		padding: 60px var(--page-padding);
+	}
+
+	.content-section {
+		grid-template-columns: 1fr 2fr;
+		gap: 20px;
+	}
+
+	.section-content {
+		gap: 20px;
+	}
+
+	.section-content_type_columns {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		align-items: start;
+	}
+
+	.gallery-list {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-rows: repeat(3, auto);
+		gap: 20px;
+	}
+
+	.gallery-item_type_sunset {
+		grid-column: 1 / 3;
+		grid-row: 1;
+	}
+
+	.gallery-item_type_ice-cream {
+		grid-column: 3;
+		grid-row: 1 / 3;
+	}
+
+	.gallery-item_type_tape {
+		grid-column: 1;
+		grid-row: 2 / 4;
+	}
+
+	.gallery-item_type_books {
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.gallery-item_type_street {
+		grid-column: 2 / 4;
+		grid-row: 3;
+	}
+
+	.footer {
+		min-block-size: 768px;
+	}
+
+	.footer__title {
+		font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+	}
+}
+
+@media (width > 1024px) {
+	.header {
+		min-block-size: 768px;
+	}
+
+	.header__description {
+		max-inline-size: 50%;
+	}
+
+	.main {
+		padding-inline: 20px;
+	}
+
+	.footer {
+		min-block-size: 768px;
+	}
 }
