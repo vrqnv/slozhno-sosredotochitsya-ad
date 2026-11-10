@@ -249,7 +249,7 @@
 	text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-@media (width >= 768px) {
+@media (width > 768px) {
 	:root {
 		--page-padding: 20px;
 		--section-gap: 80px;
